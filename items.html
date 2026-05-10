@@ -6,16 +6,13 @@
   <title>Items – Arora Stationers</title>
   <link rel="stylesheet" href="style.css" />
   <style>
-    /* ── CAROUSEL ── */
     .carousel-section {
       padding: 3rem 0 3rem 2rem;
       border-bottom: 1px solid var(--border);
       overflow: hidden;
     }
-
-    .carousel-section:last-of-type {
-      border-bottom: none;
-    }
+    .carousel-section:last-of-type { border-bottom: none; }
+    .carousel-section.alt-bg { background: #fff8ee; }
 
     .carousel-header {
       max-width: 1200px;
@@ -25,13 +22,11 @@
       align-items: baseline;
       gap: 1rem;
     }
-
     .carousel-header h2 {
       font-family: 'Playfair Display', serif;
       font-size: 1.6rem;
       color: var(--dark-brown);
     }
-
     .carousel-header span {
       font-size: 0.75rem;
       letter-spacing: 2px;
@@ -45,10 +40,7 @@
       cursor: grab;
       user-select: none;
     }
-
-    .carousel-track-wrap:active {
-      cursor: grabbing;
-    }
+    .carousel-track-wrap:active { cursor: grabbing; }
 
     .carousel-track {
       display: flex;
@@ -56,10 +48,7 @@
       width: max-content;
       animation: scroll-left 30s linear infinite;
     }
-
-    .carousel-track:hover {
-      animation-play-state: paused;
-    }
+    .carousel-track:hover { animation-play-state: paused; }
 
     @keyframes scroll-left {
       0%   { transform: translateX(0); }
@@ -76,12 +65,10 @@
       overflow: hidden;
       transition: transform 0.3s, box-shadow 0.3s;
     }
-
     .c-card:hover {
       transform: translateY(-5px);
       box-shadow: 0 10px 25px rgba(44,26,14,0.12);
     }
-
     .c-card img {
       width: 100%;
       height: 140px;
@@ -89,18 +76,12 @@
       display: block;
       border-bottom: 1px solid var(--border);
     }
-
     .c-card-name {
       padding: 0.7rem 0.5rem;
       font-family: 'Playfair Display', serif;
       font-size: 0.85rem;
       color: var(--dark-brown);
       line-height: 1.3;
-    }
-
-    /* alternate section bg */
-    .carousel-section.alt-bg {
-      background: #fff8ee;
     }
   </style>
 </head>
@@ -127,368 +108,139 @@
   </div>
 
 
-  <!-- ══════════════════════════════════════
-       STATIONERY
-  ══════════════════════════════════════ -->
+  <!-- STATIONERY -->
   <div class="carousel-section" id="stationery">
     <div class="carousel-header">
       <h2>Stationery</h2>
       <span>Writing &amp; Office Essentials</span>
     </div>
     <div class="carousel-track-wrap">
-      <div class="carousel-track" id="track-stationery">
-
-        <div class="c-card">
-          <img src="https://images.unsplash.com/photo-1583485088034-697b5bc54ccd?w=400&q=80" alt="Ball Point Pens"/>
-          <div class="c-card-name">Ball Point Pens</div>
-        </div>
-        <div class="c-card">
-          <img src="https://images.unsplash.com/photo-1531346878377-a5be20888e57?w=400&q=80" alt="Spiral Notebook"/>
-          <div class="c-card-name">Spiral Notebook</div>
-        </div>
-        <div class="c-card">
-          <img src="https://images.unsplash.com/photo-1456735190827-d1262f71b8a3?w=400&q=80" alt="Fountain Pen"/>
-          <div class="c-card-name">Fountain Pen</div>
-        </div>
-        <div class="c-card">
-          <img src="https://images.unsplash.com/photo-1611532736597-de2d4265fba3?w=400&q=80" alt="Sticky Notes"/>
-          <div class="c-card-name">Sticky Notes</div>
-        </div>
-        <div class="c-card">
-          <img src="https://images.unsplash.com/photo-1497633762265-9d179a990aa6?w=400&q=80" alt="Registers"/>
-          <div class="c-card-name">Registers</div>
-        </div>
-        <div class="c-card">
-          <img src="https://images.unsplash.com/photo-1586281380349-632531db7ed4?w=400&q=80" alt="Stapler"/>
-          <div class="c-card-name">Stapler</div>
-        </div>
-        <div class="c-card">
-          <img src="https://images.unsplash.com/photo-1471107340929-a87cd0f5b5f3?w=400&q=80" alt="Highlighters"/>
-          <div class="c-card-name">Highlighters</div>
-        </div>
-        <div class="c-card">
-          <img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=400&q=80" alt="Pencils"/>
-          <div class="c-card-name">Pencils</div>
-        </div>
-
+      <div class="carousel-track" style="animation-duration:30s;">
+        <div class="c-card"><img src="images/ball-pens.jpg" alt="Ball Point Pens"/><div class="c-card-name">Ball Point Pens</div></div>
+        <div class="c-card"><img src="images/notebook.jpg" alt="Spiral Notebook"/><div class="c-card-name">Spiral Notebook</div></div>
+        <div class="c-card"><img src="images/fountain-pen.jpg" alt="Fountain Pen"/><div class="c-card-name">Fountain Pen</div></div>
+        <div class="c-card"><img src="images/sticky-notes.jpg" alt="Sticky Notes"/><div class="c-card-name">Sticky Notes</div></div>
+        <div class="c-card"><img src="images/registers.jpg" alt="Registers"/><div class="c-card-name">Registers</div></div>
+        <div class="c-card"><img src="images/stapler.jpg" alt="Stapler"/><div class="c-card-name">Stapler</div></div>
+        <div class="c-card"><img src="images/highlighters.jpg" alt="Highlighters"/><div class="c-card-name">Highlighters</div></div>
+        <div class="c-card"><img src="images/pencils.jpg" alt="Pencils"/><div class="c-card-name">Pencils</div></div>
         <!-- duplicate for seamless loop -->
-        <div class="c-card">
-          <img src="https://images.unsplash.com/photo-1583485088034-697b5bc54ccd?w=400&q=80" alt="Ball Point Pens"/>
-          <div class="c-card-name">Ball Point Pens</div>
-        </div>
-        <div class="c-card">
-          <img src="https://images.unsplash.com/photo-1531346878377-a5be20888e57?w=400&q=80" alt="Spiral Notebook"/>
-          <div class="c-card-name">Spiral Notebook</div>
-        </div>
-        <div class="c-card">
-          <img src="https://images.unsplash.com/photo-1456735190827-d1262f71b8a3?w=400&q=80" alt="Fountain Pen"/>
-          <div class="c-card-name">Fountain Pen</div>
-        </div>
-        <div class="c-card">
-          <img src="https://images.unsplash.com/photo-1611532736597-de2d4265fba3?w=400&q=80" alt="Sticky Notes"/>
-          <div class="c-card-name">Sticky Notes</div>
-        </div>
-        <div class="c-card">
-          <img src="https://images.unsplash.com/photo-1497633762265-9d179a990aa6?w=400&q=80" alt="Registers"/>
-          <div class="c-card-name">Registers</div>
-        </div>
-        <div class="c-card">
-          <img src="https://images.unsplash.com/photo-1586281380349-632531db7ed4?w=400&q=80" alt="Stapler"/>
-          <div class="c-card-name">Stapler</div>
-        </div>
-        <div class="c-card">
-          <img src="https://images.unsplash.com/photo-1471107340929-a87cd0f5b5f3?w=400&q=80" alt="Highlighters"/>
-          <div class="c-card-name">Highlighters</div>
-        </div>
-        <div class="c-card">
-          <img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=400&q=80" alt="Pencils"/>
-          <div class="c-card-name">Pencils</div>
-        </div>
-
+        <div class="c-card"><img src="images/ball-pens.jpg" alt="Ball Point Pens"/><div class="c-card-name">Ball Point Pens</div></div>
+        <div class="c-card"><img src="images/notebook.jpg" alt="Spiral Notebook"/><div class="c-card-name">Spiral Notebook</div></div>
+        <div class="c-card"><img src="images/fountain-pen.jpg" alt="Fountain Pen"/><div class="c-card-name">Fountain Pen</div></div>
+        <div class="c-card"><img src="images/sticky-notes.jpg" alt="Sticky Notes"/><div class="c-card-name">Sticky Notes</div></div>
+        <div class="c-card"><img src="images/registers.jpg" alt="Registers"/><div class="c-card-name">Registers</div></div>
+        <div class="c-card"><img src="images/stapler.jpg" alt="Stapler"/><div class="c-card-name">Stapler</div></div>
+        <div class="c-card"><img src="images/highlighters.jpg" alt="Highlighters"/><div class="c-card-name">Highlighters</div></div>
+        <div class="c-card"><img src="images/pencils.jpg" alt="Pencils"/><div class="c-card-name">Pencils</div></div>
       </div>
     </div>
   </div>
 
 
-  <!-- ══════════════════════════════════════
-       CRAFT
-  ══════════════════════════════════════ -->
+  <!-- CRAFT -->
   <div class="carousel-section alt-bg" id="craft">
     <div class="carousel-header">
       <h2>Craft Items</h2>
       <span>Creative Supplies</span>
     </div>
     <div class="carousel-track-wrap">
-      <div class="carousel-track" id="track-craft" style="animation-duration:35s;">
-
-        <div class="c-card">
-          <img src="https://images.unsplash.com/photo-1513364776144-60967b0f800f?w=400&q=80" alt="Craft Scissors"/>
-          <div class="c-card-name">Craft Scissors</div>
-        </div>
-        <div class="c-card">
-          <img src="https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=400&q=80" alt="Glitter Sheets"/>
-          <div class="c-card-name">Glitter Sheets</div>
-        </div>
-        <div class="c-card">
-          <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&q=80" alt="Foam Sheets"/>
-          <div class="c-card-name">Foam Sheets</div>
-        </div>
-        <div class="c-card">
-          <img src="https://images.unsplash.com/photo-1572635196237-14b3f281503f?w=400&q=80" alt="Craft Brushes"/>
-          <div class="c-card-name">Craft Brushes</div>
-        </div>
-        <div class="c-card">
-          <img src="https://images.unsplash.com/photo-1607344645866-009c320b63e0?w=400&q=80" alt="Craft Paper"/>
-          <div class="c-card-name">Craft Paper</div>
-        </div>
-        <div class="c-card">
-          <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=400&q=80" alt="Washi Tape"/>
-          <div class="c-card-name">Washi Tape</div>
-        </div>
-        <div class="c-card">
-          <img src="https://images.unsplash.com/photo-1560421683-6856ea585c78?w=400&q=80" alt="Sticker Sheets"/>
-          <div class="c-card-name">Sticker Sheets</div>
-        </div>
-
+      <div class="carousel-track" style="animation-duration:35s;">
+        <div class="c-card"><img src="images/craft-scissors.jpg" alt="Craft Scissors"/><div class="c-card-name">Craft Scissors</div></div>
+        <div class="c-card"><img src="images/glitter-sheets.jpg" alt="Glitter Sheets"/><div class="c-card-name">Glitter Sheets</div></div>
+        <div class="c-card"><img src="images/foam-sheets.jpg" alt="Foam Sheets"/><div class="c-card-name">Foam Sheets</div></div>
+        <div class="c-card"><img src="images/craft-brushes.jpg" alt="Craft Brushes"/><div class="c-card-name">Craft Brushes</div></div>
+        <div class="c-card"><img src="images/craft-paper.jpg" alt="Craft Paper"/><div class="c-card-name">Craft Paper</div></div>
+        <div class="c-card"><img src="images/washi-tape.jpg" alt="Washi Tape"/><div class="c-card-name">Washi Tape</div></div>
+        <div class="c-card"><img src="images/sticker-sheets.jpg" alt="Sticker Sheets"/><div class="c-card-name">Sticker Sheets</div></div>
         <!-- duplicate -->
-        <div class="c-card">
-          <img src="https://images.unsplash.com/photo-1513364776144-60967b0f800f?w=400&q=80" alt="Craft Scissors"/>
-          <div class="c-card-name">Craft Scissors</div>
-        </div>
-        <div class="c-card">
-          <img src="https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=400&q=80" alt="Glitter Sheets"/>
-          <div class="c-card-name">Glitter Sheets</div>
-        </div>
-        <div class="c-card">
-          <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&q=80" alt="Foam Sheets"/>
-          <div class="c-card-name">Foam Sheets</div>
-        </div>
-        <div class="c-card">
-          <img src="https://images.unsplash.com/photo-1572635196237-14b3f281503f?w=400&q=80" alt="Craft Brushes"/>
-          <div class="c-card-name">Craft Brushes</div>
-        </div>
-        <div class="c-card">
-          <img src="https://images.unsplash.com/photo-1607344645866-009c320b63e0?w=400&q=80" alt="Craft Paper"/>
-          <div class="c-card-name">Craft Paper</div>
-        </div>
-        <div class="c-card">
-          <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=400&q=80" alt="Washi Tape"/>
-          <div class="c-card-name">Washi Tape</div>
-        </div>
-        <div class="c-card">
-          <img src="https://images.unsplash.com/photo-1560421683-6856ea585c78?w=400&q=80" alt="Sticker Sheets"/>
-          <div class="c-card-name">Sticker Sheets</div>
-        </div>
-
+        <div class="c-card"><img src="images/craft-scissors.jpg" alt="Craft Scissors"/><div class="c-card-name">Craft Scissors</div></div>
+        <div class="c-card"><img src="images/glitter-sheets.jpg" alt="Glitter Sheets"/><div class="c-card-name">Glitter Sheets</div></div>
+        <div class="c-card"><img src="images/foam-sheets.jpg" alt="Foam Sheets"/><div class="c-card-name">Foam Sheets</div></div>
+        <div class="c-card"><img src="images/craft-brushes.jpg" alt="Craft Brushes"/><div class="c-card-name">Craft Brushes</div></div>
+        <div class="c-card"><img src="images/craft-paper.jpg" alt="Craft Paper"/><div class="c-card-name">Craft Paper</div></div>
+        <div class="c-card"><img src="images/washi-tape.jpg" alt="Washi Tape"/><div class="c-card-name">Washi Tape</div></div>
+        <div class="c-card"><img src="images/sticker-sheets.jpg" alt="Sticker Sheets"/><div class="c-card-name">Sticker Sheets</div></div>
       </div>
     </div>
   </div>
 
 
-  <!-- ══════════════════════════════════════
-       ART SUPPLIES
-  ══════════════════════════════════════ -->
+  <!-- ART SUPPLIES -->
   <div class="carousel-section" id="art">
     <div class="carousel-header">
       <h2>Art Supplies</h2>
       <span>For Artists &amp; Students</span>
     </div>
     <div class="carousel-track-wrap">
-      <div class="carousel-track" id="track-art" style="animation-duration:28s;">
-
-        <div class="c-card">
-          <img src="https://images.unsplash.com/photo-1541961017774-22349e4a1262?w=400&q=80" alt="Watercolour Set"/>
-          <div class="c-card-name">Watercolour Set</div>
-        </div>
-        <div class="c-card">
-          <img src="https://images.unsplash.com/photo-1513364776144-60967b0f800f?w=400&q=80" alt="Oil Pastels"/>
-          <div class="c-card-name">Oil Pastels</div>
-        </div>
-        <div class="c-card">
-          <img src="https://images.unsplash.com/photo-1578301978693-85fa9c0320b9?w=400&q=80" alt="Sketch Pad"/>
-          <div class="c-card-name">Sketch Pad</div>
-        </div>
-        <div class="c-card">
-          <img src="https://images.unsplash.com/photo-1560421683-6856ea585c78?w=400&q=80" alt="Charcoal Pencils"/>
-          <div class="c-card-name">Charcoal Pencils</div>
-        </div>
-        <div class="c-card">
-          <img src="https://images.unsplash.com/photo-1572635196237-14b3f281503f?w=400&q=80" alt="Paint Brushes"/>
-          <div class="c-card-name">Paint Brushes</div>
-        </div>
-        <div class="c-card">
-          <img src="https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=400&q=80" alt="Acrylic Colours"/>
-          <div class="c-card-name">Acrylic Colours</div>
-        </div>
-        <div class="c-card">
-          <img src="https://images.unsplash.com/photo-1607344645866-009c320b63e0?w=400&q=80" alt="Canvas Board"/>
-          <div class="c-card-name">Canvas Board</div>
-        </div>
-
+      <div class="carousel-track" style="animation-duration:28s;">
+        <div class="c-card"><img src="images/watercolour.jpg" alt="Watercolour Set"/><div class="c-card-name">Watercolour Set</div></div>
+        <div class="c-card"><img src="images/oil-pastels.jpg" alt="Oil Pastels"/><div class="c-card-name">Oil Pastels</div></div>
+        <div class="c-card"><img src="images/sketch-pad.jpg" alt="Sketch Pad"/><div class="c-card-name">Sketch Pad</div></div>
+        <div class="c-card"><img src="images/charcoal-pencils.jpg" alt="Charcoal Pencils"/><div class="c-card-name">Charcoal Pencils</div></div>
+        <div class="c-card"><img src="images/paint-brushes.jpg" alt="Paint Brushes"/><div class="c-card-name">Paint Brushes</div></div>
+        <div class="c-card"><img src="images/acrylic-colours.jpg" alt="Acrylic Colours"/><div class="c-card-name">Acrylic Colours</div></div>
+        <div class="c-card"><img src="images/canvas-board.jpg" alt="Canvas Board"/><div class="c-card-name">Canvas Board</div></div>
         <!-- duplicate -->
-        <div class="c-card">
-          <img src="https://images.unsplash.com/photo-1541961017774-22349e4a1262?w=400&q=80" alt="Watercolour Set"/>
-          <div class="c-card-name">Watercolour Set</div>
-        </div>
-        <div class="c-card">
-          <img src="https://images.unsplash.com/photo-1513364776144-60967b0f800f?w=400&q=80" alt="Oil Pastels"/>
-          <div class="c-card-name">Oil Pastels</div>
-        </div>
-        <div class="c-card">
-          <img src="https://images.unsplash.com/photo-1578301978693-85fa9c0320b9?w=400&q=80" alt="Sketch Pad"/>
-          <div class="c-card-name">Sketch Pad</div>
-        </div>
-        <div class="c-card">
-          <img src="https://images.unsplash.com/photo-1560421683-6856ea585c78?w=400&q=80" alt="Charcoal Pencils"/>
-          <div class="c-card-name">Charcoal Pencils</div>
-        </div>
-        <div class="c-card">
-          <img src="https://images.unsplash.com/photo-1572635196237-14b3f281503f?w=400&q=80" alt="Paint Brushes"/>
-          <div class="c-card-name">Paint Brushes</div>
-        </div>
-        <div class="c-card">
-          <img src="https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=400&q=80" alt="Acrylic Colours"/>
-          <div class="c-card-name">Acrylic Colours</div>
-        </div>
-        <div class="c-card">
-          <img src="https://images.unsplash.com/photo-1607344645866-009c320b63e0?w=400&q=80" alt="Canvas Board"/>
-          <div class="c-card-name">Canvas Board</div>
-        </div>
-
+        <div class="c-card"><img src="images/watercolour.jpg" alt="Watercolour Set"/><div class="c-card-name">Watercolour Set</div></div>
+        <div class="c-card"><img src="images/oil-pastels.jpg" alt="Oil Pastels"/><div class="c-card-name">Oil Pastels</div></div>
+        <div class="c-card"><img src="images/sketch-pad.jpg" alt="Sketch Pad"/><div class="c-card-name">Sketch Pad</div></div>
+        <div class="c-card"><img src="images/charcoal-pencils.jpg" alt="Charcoal Pencils"/><div class="c-card-name">Charcoal Pencils</div></div>
+        <div class="c-card"><img src="images/paint-brushes.jpg" alt="Paint Brushes"/><div class="c-card-name">Paint Brushes</div></div>
+        <div class="c-card"><img src="images/acrylic-colours.jpg" alt="Acrylic Colours"/><div class="c-card-name">Acrylic Colours</div></div>
+        <div class="c-card"><img src="images/canvas-board.jpg" alt="Canvas Board"/><div class="c-card-name">Canvas Board</div></div>
       </div>
     </div>
   </div>
 
 
-  <!-- ══════════════════════════════════════
-       SCHOOL SUPPLIES
-  ══════════════════════════════════════ -->
+  <!-- SCHOOL SUPPLIES -->
   <div class="carousel-section alt-bg" id="school">
     <div class="carousel-header">
       <h2>School Supplies</h2>
       <span>Back to School Essentials</span>
     </div>
     <div class="carousel-track-wrap">
-      <div class="carousel-track" id="track-school" style="animation-duration:32s;">
-
-        <div class="c-card">
-          <img src="https://images.unsplash.com/photo-1497633762265-9d179a990aa6?w=400&q=80" alt="Registers"/>
-          <div class="c-card-name">Registers</div>
-        </div>
-        <div class="c-card">
-          <img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=400&q=80" alt="Pencil Box"/>
-          <div class="c-card-name">Pencil Box</div>
-        </div>
-        <div class="c-card">
-          <img src="https://images.unsplash.com/photo-1456735190827-d1262f71b8a3?w=400&q=80" alt="Geometry Box"/>
-          <div class="c-card-name">Geometry Box</div>
-        </div>
-        <div class="c-card">
-          <img src="https://images.unsplash.com/photo-1583485088034-697b5bc54ccd?w=400&q=80" alt="Erasers"/>
-          <div class="c-card-name">Erasers &amp; Sharpeners</div>
-        </div>
-        <div class="c-card">
-          <img src="https://images.unsplash.com/photo-1531346878377-a5be20888e57?w=400&q=80" alt="Project File"/>
-          <div class="c-card-name">Project File</div>
-        </div>
-        <div class="c-card">
-          <img src="https://images.unsplash.com/photo-1586281380349-632531db7ed4?w=400&q=80" alt="Ruler Set"/>
-          <div class="c-card-name">Ruler Set</div>
-        </div>
-
+      <div class="carousel-track" style="animation-duration:32s;">
+        <div class="c-card"><img src="images/registers.jpg" alt="Registers"/><div class="c-card-name">Registers</div></div>
+        <div class="c-card"><img src="images/pencil-box.jpg" alt="Pencil Box"/><div class="c-card-name">Pencil Box</div></div>
+        <div class="c-card"><img src="images/geometry-box.jpg" alt="Geometry Box"/><div class="c-card-name">Geometry Box</div></div>
+        <div class="c-card"><img src="images/erasers.jpg" alt="Erasers & Sharpeners"/><div class="c-card-name">Erasers &amp; Sharpeners</div></div>
+        <div class="c-card"><img src="images/project-file.jpg" alt="Project File"/><div class="c-card-name">Project File</div></div>
+        <div class="c-card"><img src="images/ruler-set.jpg" alt="Ruler Set"/><div class="c-card-name">Ruler Set</div></div>
         <!-- duplicate -->
-        <div class="c-card">
-          <img src="https://images.unsplash.com/photo-1497633762265-9d179a990aa6?w=400&q=80" alt="Registers"/>
-          <div class="c-card-name">Registers</div>
-        </div>
-        <div class="c-card">
-          <img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=400&q=80" alt="Pencil Box"/>
-          <div class="c-card-name">Pencil Box</div>
-        </div>
-        <div class="c-card">
-          <img src="https://images.unsplash.com/photo-1456735190827-d1262f71b8a3?w=400&q=80" alt="Geometry Box"/>
-          <div class="c-card-name">Geometry Box</div>
-        </div>
-        <div class="c-card">
-          <img src="https://images.unsplash.com/photo-1583485088034-697b5bc54ccd?w=400&q=80" alt="Erasers"/>
-          <div class="c-card-name">Erasers &amp; Sharpeners</div>
-        </div>
-        <div class="c-card">
-          <img src="https://images.unsplash.com/photo-1531346878377-a5be20888e57?w=400&q=80" alt="Project File"/>
-          <div class="c-card-name">Project File</div>
-        </div>
-        <div class="c-card">
-          <img src="https://images.unsplash.com/photo-1586281380349-632531db7ed4?w=400&q=80" alt="Ruler Set"/>
-          <div class="c-card-name">Ruler Set</div>
-        </div>
-
+        <div class="c-card"><img src="images/registers.jpg" alt="Registers"/><div class="c-card-name">Registers</div></div>
+        <div class="c-card"><img src="images/pencil-box.jpg" alt="Pencil Box"/><div class="c-card-name">Pencil Box</div></div>
+        <div class="c-card"><img src="images/geometry-box.jpg" alt="Geometry Box"/><div class="c-card-name">Geometry Box</div></div>
+        <div class="c-card"><img src="images/erasers.jpg" alt="Erasers & Sharpeners"/><div class="c-card-name">Erasers &amp; Sharpeners</div></div>
+        <div class="c-card"><img src="images/project-file.jpg" alt="Project File"/><div class="c-card-name">Project File</div></div>
+        <div class="c-card"><img src="images/ruler-set.jpg" alt="Ruler Set"/><div class="c-card-name">Ruler Set</div></div>
       </div>
     </div>
   </div>
 
 
-  <!-- ══════════════════════════════════════
-       GIFTING
-  ══════════════════════════════════════ -->
+  <!-- GIFTING -->
   <div class="carousel-section" id="gifting">
     <div class="carousel-header">
       <h2>Gift &amp; Wrapping</h2>
       <span>Packaging &amp; Gifting Supplies</span>
     </div>
     <div class="carousel-track-wrap">
-      <div class="carousel-track" id="track-gifting" style="animation-duration:26s;">
-
-        <div class="c-card">
-          <img src="https://images.unsplash.com/photo-1607344645866-009c320b63e0?w=400&q=80" alt="Gift Wrap Sheets"/>
-          <div class="c-card-name">Gift Wrap Sheets</div>
-        </div>
-        <div class="c-card">
-          <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=400&q=80" alt="Satin Ribbons"/>
-          <div class="c-card-name">Satin Ribbons</div>
-        </div>
-        <div class="c-card">
-          <img src="https://images.unsplash.com/photo-1560421683-6856ea585c78?w=400&q=80" alt="Greeting Cards"/>
-          <div class="c-card-name">Greeting Cards</div>
-        </div>
-        <div class="c-card">
-          <img src="https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=400&q=80" alt="Gift Boxes"/>
-          <div class="c-card-name">Gift Boxes</div>
-        </div>
-        <div class="c-card">
-          <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&q=80" alt="Tissue Paper"/>
-          <div class="c-card-name">Tissue Paper</div>
-        </div>
-        <div class="c-card">
-          <img src="https://images.unsplash.com/photo-1611532736597-de2d4265fba3?w=400&q=80" alt="Bow Stickers"/>
-          <div class="c-card-name">Bow Stickers</div>
-        </div>
-
+      <div class="carousel-track" style="animation-duration:26s;">
+        <div class="c-card"><img src="images/gift-wrap.jpg" alt="Gift Wrap Sheets"/><div class="c-card-name">Gift Wrap Sheets</div></div>
+        <div class="c-card"><img src="images/ribbons.jpg" alt="Satin Ribbons"/><div class="c-card-name">Satin Ribbons</div></div>
+        <div class="c-card"><img src="images/greeting-cards.jpg" alt="Greeting Cards"/><div class="c-card-name">Greeting Cards</div></div>
+        <div class="c-card"><img src="images/gift-boxes.jpg" alt="Gift Boxes"/><div class="c-card-name">Gift Boxes</div></div>
+        <div class="c-card"><img src="images/tissue-paper.jpg" alt="Tissue Paper"/><div class="c-card-name">Tissue Paper</div></div>
+        <div class="c-card"><img src="images/bow-stickers.jpg" alt="Bow Stickers"/><div class="c-card-name">Bow Stickers</div></div>
         <!-- duplicate -->
-        <div class="c-card">
-          <img src="https://images.unsplash.com/photo-1607344645866-009c320b63e0?w=400&q=80" alt="Gift Wrap Sheets"/>
-          <div class="c-card-name">Gift Wrap Sheets</div>
-        </div>
-        <div class="c-card">
-          <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=400&q=80" alt="Satin Ribbons"/>
-          <div class="c-card-name">Satin Ribbons</div>
-        </div>
-        <div class="c-card">
-          <img src="https://images.unsplash.com/photo-1560421683-6856ea585c78?w=400&q=80" alt="Greeting Cards"/>
-          <div class="c-card-name">Greeting Cards</div>
-        </div>
-        <div class="c-card">
-          <img src="https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=400&q=80" alt="Gift Boxes"/>
-          <div class="c-card-name">Gift Boxes</div>
-        </div>
-        <div class="c-card">
-          <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&q=80" alt="Tissue Paper"/>
-          <div class="c-card-name">Tissue Paper</div>
-        </div>
-        <div class="c-card">
-          <img src="https://images.unsplash.com/photo-1611532736597-de2d4265fba3?w=400&q=80" alt="Bow Stickers"/>
-          <div class="c-card-name">Bow Stickers</div>
-        </div>
-
+        <div class="c-card"><img src="images/gift-wrap.jpg" alt="Gift Wrap Sheets"/><div class="c-card-name">Gift Wrap Sheets</div></div>
+        <div class="c-card"><img src="images/ribbons.jpg" alt="Satin Ribbons"/><div class="c-card-name">Satin Ribbons</div></div>
+        <div class="c-card"><img src="images/greeting-cards.jpg" alt="Greeting Cards"/><div class="c-card-name">Greeting Cards</div></div>
+        <div class="c-card"><img src="images/gift-boxes.jpg" alt="Gift Boxes"/><div class="c-card-name">Gift Boxes</div></div>
+        <div class="c-card"><img src="images/tissue-paper.jpg" alt="Tissue Paper"/><div class="c-card-name">Tissue Paper</div></div>
+        <div class="c-card"><img src="images/bow-stickers.jpg" alt="Bow Stickers"/><div class="c-card-name">Bow Stickers</div></div>
       </div>
     </div>
   </div>
@@ -500,27 +252,11 @@
   </footer>
 
   <script>
-    // Pause / resume on mouse drag (optional touch of interactivity)
     document.querySelectorAll('.carousel-track-wrap').forEach(wrap => {
-      let isDown = false, startX, scrollLeft;
       const track = wrap.querySelector('.carousel-track');
-
-      wrap.addEventListener('mousedown', e => {
-        isDown = true;
-        track.style.animationPlayState = 'paused';
-        startX = e.pageX - wrap.offsetLeft;
-        scrollLeft = wrap.scrollLeft;
-      });
-
-      wrap.addEventListener('mouseleave', () => {
-        isDown = false;
-        track.style.animationPlayState = 'running';
-      });
-
-      wrap.addEventListener('mouseup', () => {
-        isDown = false;
-        track.style.animationPlayState = 'running';
-      });
+      wrap.addEventListener('mousedown', () => track.style.animationPlayState = 'paused');
+      wrap.addEventListener('mouseleave', () => track.style.animationPlayState = 'running');
+      wrap.addEventListener('mouseup',    () => track.style.animationPlayState = 'running');
     });
   </script>
 
