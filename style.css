@@ -1230,3 +1230,46 @@ footer a {
   transform: translateY(-2px);
   box-shadow: 0 6px 20px rgba(0,0,0,0.3);
 }
+
+/* ══════════════════════════════════════
+   MOBILE BACK BUTTON
+══════════════════════════════════════ */
+.back-home-btn {
+  display: none;
+}
+
+@media (max-width: 640px) {
+  .back-home-btn {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    position: fixed;
+    bottom: 1.5rem;
+    left: 1.2rem;
+    z-index: 200;
+    background: var(--dark-brown);
+    color: var(--light-gold);
+    border: 1px solid var(--gold);
+    padding: 0.6rem 1.1rem;
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    text-decoration: none;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.35);
+    transition: background 0.2s, color 0.2s;
+  }
+
+  .back-home-btn:hover,
+  .back-home-btn:active {
+    background: var(--saffron);
+    border-color: var(--saffron);
+    color: white;
+  }
+
+  .back-home-btn .back-arrow {
+    font-size: 1rem;
+    line-height: 1;
+  }
+}
