@@ -21,6 +21,9 @@
       <li><a href="items.html">Items</a></li>
       <li><a href="festive.html">Festive</a></li>
     </ul>
+    <button class="nav-hamburger" id="hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
   </nav>
 
   <div class="page-hero">
@@ -70,14 +73,12 @@ Today, Arora Stationers is proudly managed by Mr. Pankaj Arora and his wife, Mrs
         <div class="detail-card">
           <h4>Address</h4>
           <p>
-            P-142, 144, E Block Market,<br/>
-            Near Kush Chicken Center,<br/>
-            Near Nitesh Lungi Bhandar,<br/>
-            Block E, Rajajipuram,<br/>
+            P-142, 144, E Block Market<br/>
+            Rajajipuram,<br/>
             Lucknow, Uttar Pradesh – 226017
           </p>
           <!-- PASTE YOUR GOOGLE MAPS LINK BELOW in the href="" -->
-          <a href="YOUR_GOOGLE_MAPS_LINK_HERE" target="_blank" class="maps-link maps-link-card">View on Google Maps &rarr;</a>
+          <a href="https://maps.app.goo.gl/rVZ9LDZaRFy4vV4q8" target="_blank" class="maps-link maps-link-card">View on Google Maps &rarr;</a>
         </div>
         <div class="detail-card">
           <h4>Phone</h4>
@@ -141,5 +142,17 @@ Today, Arora Stationers is proudly managed by Mr. Pankaj Arora and his wife, Mrs
     <p>&copy; 2026 <a href="index.html">Arora Stationers</a>. All rights reserved.</p>
   </footer>
 
+  <script>
+    const hamburger = document.getElementById('hamburger');
+    const navUl = document.querySelector('nav ul');
+    hamburger.addEventListener('click', () => {
+      hamburger.classList.toggle('open');
+      navUl.classList.toggle('open');
+    });
+    navUl.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+      hamburger.classList.remove('open');
+      navUl.classList.remove('open');
+    }));
+  </script>
 </body>
 </html>

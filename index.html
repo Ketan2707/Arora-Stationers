@@ -18,6 +18,9 @@
       <li><a href="items.html">Items</a></li>
       <li><a href="festive.html">Festive</a></li>
     </ul>
+    <button class="nav-hamburger" id="hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
   </nav>
 
   <!-- HERO -->
@@ -100,54 +103,183 @@
     <a href="festive.html" class="btn btn-outline">Explore Festive Collection</a>
   </div>
 
-  <!-- FEATURED ITEMS -->
-  <div class="section-wrap">
-    <div class="section-title">
-      <h2>Popular Items</h2>
-      <p>Our most loved products by customers</p>
-      <div class="ornament-divider"><span>&#10022;</span></div>
-    </div>
-    <div class="items-grid">
-      <a href="items.html" class="item-card">
-        <div class="item-img" style="font-size:1rem; color: var(--muted); font-family:'Playfair Display',serif;">Pen Set</div>
-        <div class="item-info">
-          <h4>Premium Pen Set</h4>
-          <p>Smooth writing, multiple colours</p>
-          <div class="item-price">Rs. 120</div>
+  <!-- REVIEWS SECTION -->
+  <div class="reviews-section">
+
+    <div class="reviews-bg-pattern"></div>
+
+    <div class="reviews-inner">
+
+      <div class="reviews-header">
+        <div class="reviews-badge">ग्राहक समीक्षा</div>
+        <h2>What Our Customers Say</h2>
+        <div class="reviews-stars-row">
+          <span class="star filled">&#9733;</span>
+          <span class="star filled">&#9733;</span>
+          <span class="star filled">&#9733;</span>
+          <span class="star filled">&#9733;</span>
+          <span class="star half">&#9733;</span>
         </div>
-      </a>
-      <a href="items.html" class="item-card">
-        <div class="item-img" style="font-size:1rem; color: var(--muted); font-family:'Playfair Display',serif;">Notebook</div>
-        <div class="item-info">
-          <h4>Spiral Notebook</h4>
-          <p>A5, 200 pages, ruled</p>
-          <div class="item-price">Rs. 85</div>
+        <p class="reviews-sub">Rated <strong>4.7</strong> on Google &nbsp;·&nbsp; <strong>23 reviews</strong></p>
+      </div>
+
+      <!-- REVIEW CARDS MARQUEE -->
+      <div class="reviews-marquee-wrap">
+        <div class="reviews-marquee">
+
+          <div class="review-card">
+            <div class="review-top">
+              <div class="reviewer-avatar">U</div>
+              <div>
+                <div class="reviewer-name">Utkarsh Sharma</div>
+                <div class="reviewer-meta">Local Guide · 106 reviews</div>
+                <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+              </div>
+              <div class="google-badge">G</div>
+            </div>
+            <p class="review-text">"I've been their customer for the last 5 years. Totally reliable, and reasonable rates shop. Suitable for all budgets, cheap to pricy varieties are available, polite dealing by Mr. Pankaj."</p>
+            <div class="review-date">4 years ago</div>
+          </div>
+
+          <div class="review-card review-card--accent">
+            <div class="review-top">
+              <div class="reviewer-avatar">A</div>
+              <div>
+                <div class="reviewer-name">Ajay Sharma</div>
+                <div class="reviewer-meta">2 reviews</div>
+                <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+              </div>
+              <div class="google-badge">G</div>
+            </div>
+            <p class="review-text">"Prices are genuine and there is huge variety. Please must visit!"</p>
+            <div class="review-date">4 years ago</div>
+          </div>
+
+          <div class="review-card">
+            <div class="review-top">
+              <div class="reviewer-avatar">R</div>
+              <div>
+                <div class="reviewer-name">Rinku Verma</div>
+                <div class="reviewer-meta">1 review</div>
+                <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+              </div>
+              <div class="google-badge">G</div>
+            </div>
+            <p class="review-text">"It's very good shop for stationery and craft. Must visit."</p>
+            <div class="review-date">4 years ago</div>
+          </div>
+
+          <div class="review-card review-card--accent">
+            <div class="review-top">
+              <div class="reviewer-avatar">S</div>
+              <div>
+                <div class="reviewer-name">Shinky Sakhuja</div>
+                <div class="reviewer-meta">Local Guide · 12 reviews</div>
+                <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+              </div>
+              <div class="google-badge">G</div>
+            </div>
+            <p class="review-text">"Very satisfied with the kind of service being provided at Arora Stationers. The nature of Mr. Pankaj Arora is kind. All kinds of items related to stationery, craft items and other seasonal items are available. The Rakhi collection is so nice."</p>
+            <div class="review-date">2 years ago</div>
+          </div>
+
+          <div class="review-card">
+            <div class="review-top">
+              <div class="reviewer-avatar">H</div>
+              <div>
+                <div class="reviewer-name">Himani Khaneja</div>
+                <div class="reviewer-meta">7 reviews</div>
+                <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+              </div>
+              <div class="google-badge">G</div>
+            </div>
+            <p class="review-text">"Since my childhood, this place has been catering to all my school and craft needs. I even get my makeup craft supplies from here. Very creative material available. Hands down I trust it with everything."</p>
+            <div class="review-date">2 years ago</div>
+          </div>
+
+          <!-- duplicate set for seamless loop -->
+          <div class="review-card">
+            <div class="review-top">
+              <div class="reviewer-avatar">U</div>
+              <div>
+                <div class="reviewer-name">Utkarsh Sharma</div>
+                <div class="reviewer-meta">Local Guide · 106 reviews</div>
+                <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+              </div>
+              <div class="google-badge">G</div>
+            </div>
+            <p class="review-text">"I've been their customer for the last 5 years. Totally reliable, and reasonable rates shop. Suitable for all budgets, cheap to pricy varieties are available, polite dealing by Mr. Pankaj."</p>
+            <div class="review-date">4 years ago</div>
+          </div>
+
+          <div class="review-card review-card--accent">
+            <div class="review-top">
+              <div class="reviewer-avatar">A</div>
+              <div>
+                <div class="reviewer-name">Ajay Sharma</div>
+                <div class="reviewer-meta">2 reviews</div>
+                <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+              </div>
+              <div class="google-badge">G</div>
+            </div>
+            <p class="review-text">"Prices are genuine and there is huge variety. Please must visit!"</p>
+            <div class="review-date">4 years ago</div>
+          </div>
+
+          <div class="review-card">
+            <div class="review-top">
+              <div class="reviewer-avatar">R</div>
+              <div>
+                <div class="reviewer-name">Rinku Verma</div>
+                <div class="reviewer-meta">1 review</div>
+                <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+              </div>
+              <div class="google-badge">G</div>
+            </div>
+            <p class="review-text">"It's very good shop for stationery and craft. Must visit."</p>
+            <div class="review-date">4 years ago</div>
+          </div>
+
+          <div class="review-card review-card--accent">
+            <div class="review-top">
+              <div class="reviewer-avatar">S</div>
+              <div>
+                <div class="reviewer-name">Shinky Sakhuja</div>
+                <div class="reviewer-meta">Local Guide · 12 reviews</div>
+                <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+              </div>
+              <div class="google-badge">G</div>
+            </div>
+            <p class="review-text">"Very satisfied with the kind of service being provided at Arora Stationers. The nature of Mr. Pankaj Arora is kind. All kinds of items related to stationery, craft items and other seasonal items are available. The Rakhi collection is so nice."</p>
+            <div class="review-date">2 years ago</div>
+          </div>
+
+          <div class="review-card">
+            <div class="review-top">
+              <div class="reviewer-avatar">H</div>
+              <div>
+                <div class="reviewer-name">Himani Khaneja</div>
+                <div class="reviewer-meta">7 reviews</div>
+                <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+              </div>
+              <div class="google-badge">G</div>
+            </div>
+            <p class="review-text">"Since my childhood, this place has been catering to all my school and craft needs. I even get my makeup craft supplies from here. Very creative material available. Hands down I trust it with everything."</p>
+            <div class="review-date">2 years ago</div>
+          </div>
+
         </div>
-      </a>
-      <a href="items.html" class="item-card">
-        <div class="item-img" style="font-size:1rem; color: var(--muted); font-family:'Playfair Display',serif;">Watercolours</div>
-        <div class="item-info">
-          <h4>Watercolour Set</h4>
-          <p>24 shades, professional grade</p>
-          <div class="item-price">Rs. 250</div>
-        </div>
-      </a>
-      <a href="festive.html" class="item-card">
-        <div class="item-img" style="font-size:1rem; color: var(--muted); font-family:'Playfair Display',serif;">Diwali Kit</div>
-        <div class="item-info">
-          <h4>Diwali Craft Kit</h4>
-          <p>Rangoli colours, diyas &amp; more</p>
-          <div class="item-price">Rs. 199</div>
-        </div>
-      </a>
-      <a href="items.html" class="item-card">
-        <div class="item-img" style="font-size:1rem; color: var(--muted); font-family:'Playfair Display',serif;">Scissors</div>
-        <div class="item-info">
-          <h4>Craft Scissors Set</h4>
-          <p>Decorative edge scissors, 5 pcs</p>
-          <div class="item-price">Rs. 150</div>
-        </div>
-      </a>
+      </div>
+
+      <!-- WRITE A REVIEW CTA -->
+      <div class="review-cta">
+        <p>Had a good experience? Share it with others.</p>
+        <!-- PASTE YOUR GOOGLE REVIEW LINK BELOW in the href="" -->
+        <a href="YOUR_GOOGLE_REVIEW_LINK_HERE" target="_blank" class="btn btn-review">
+          Write a Review on Google
+        </a>
+      </div>
+
     </div>
   </div>
 
@@ -198,6 +330,19 @@
   </footer>
 
   <script>
+    // Hamburger menu
+    const hamburger = document.getElementById('hamburger');
+    const navUl = document.querySelector('nav ul');
+    hamburger.addEventListener('click', () => {
+      hamburger.classList.toggle('open');
+      navUl.classList.toggle('open');
+    });
+    // Close menu on link click
+    navUl.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+      hamburger.classList.remove('open');
+      navUl.classList.remove('open');
+    }));
+
     // Typewriter reveal for phone numbers when info strip scrolls into view
     function typeNumber(el) {
       const number = el.dataset.number;

@@ -3,8 +3,178 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Festive Items – Arora Stationers</title>
+  <title>Festive Collection – Arora Stationers</title>
   <link rel="stylesheet" href="style.css" />
+  <style>
+    /* ── FESTIVAL TABS ── */
+    .fest-tabs {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      padding: 2rem 1.5rem 0;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    .fest-tab {
+      padding: 0.55rem 1.4rem;
+      border: 1px solid var(--border);
+      background: white;
+      font-family: 'Poppins', sans-serif;
+      font-size: 0.78rem;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--muted);
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .fest-tab.active, .fest-tab:hover {
+      background: var(--saffron);
+      border-color: var(--saffron);
+      color: white;
+    }
+
+    /* ── CATALOG PANEL ── */
+    .catalog-panel { display: none; }
+    .catalog-panel.active { display: block; }
+
+    /* ── CATALOG HERO BANNER ── */
+    .catalog-banner {
+      position: relative;
+      overflow: hidden;
+      text-align: center;
+      padding: 3.5rem 2rem;
+      margin: 2rem auto 0;
+      max-width: 1100px;
+    }
+    .catalog-banner-bg {
+      position: absolute;
+      inset: 0;
+      background-size: cover;
+      background-position: center;
+      filter: brightness(0.35);
+    }
+    .catalog-banner-content {
+      position: relative;
+      z-index: 2;
+    }
+    .catalog-banner h2 {
+      font-family: 'Yatra One', cursive;
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      color: var(--light-gold);
+      letter-spacing: 3px;
+      text-shadow: 0 2px 12px rgba(0,0,0,0.5);
+    }
+    .catalog-banner p {
+      color: #e8d0a0;
+      font-size: 0.85rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-top: 0.5rem;
+    }
+    .catalog-banner-divider {
+      width: 80px;
+      height: 2px;
+      background: var(--gold);
+      margin: 1rem auto;
+    }
+
+    /* ── PHOTO GRID ── */
+    .catalog-grid-wrap {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 2rem 1.5rem 3rem;
+    }
+    .catalog-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 1.2rem;
+    }
+    .catalog-item {
+      position: relative;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      background: white;
+      aspect-ratio: 3/4;
+      cursor: pointer;
+    }
+    .catalog-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.4s ease;
+    }
+    .catalog-item:hover img { transform: scale(1.06); }
+    .catalog-item-label {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      background: linear-gradient(to top, rgba(44,26,14,0.85), transparent);
+      color: var(--light-gold);
+      font-family: 'Playfair Display', serif;
+      font-size: 0.9rem;
+      padding: 1.5rem 0.8rem 0.7rem;
+      text-align: center;
+    }
+
+    /* empty state */
+    .catalog-empty {
+      text-align: center;
+      padding: 3rem;
+      color: var(--muted);
+      font-size: 0.9rem;
+      border: 2px dashed var(--border);
+      grid-column: 1 / -1;
+    }
+    .catalog-empty span {
+      display: block;
+      font-size: 2rem;
+      margin-bottom: 0.5rem;
+      opacity: 0.4;
+    }
+
+    /* ── LIGHTBOX ── */
+    .lightbox {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.92);
+      z-index: 999;
+      align-items: center;
+      justify-content: center;
+      padding: 1rem;
+    }
+    .lightbox.open { display: flex; }
+    .lightbox img {
+      max-width: 90vw;
+      max-height: 85vh;
+      object-fit: contain;
+      border: 2px solid var(--gold);
+    }
+    .lightbox-close {
+      position: absolute;
+      top: 1rem; right: 1.5rem;
+      color: var(--light-gold);
+      font-size: 2rem;
+      cursor: pointer;
+      background: none;
+      border: none;
+      line-height: 1;
+    }
+    .lightbox-caption {
+      position: absolute;
+      bottom: 1.5rem;
+      color: #c4a882;
+      font-family: 'Playfair Display', serif;
+      font-size: 1rem;
+      letter-spacing: 1px;
+    }
+
+    @media (max-width: 640px) {
+      .catalog-grid { grid-template-columns: repeat(2, 1fr); gap: 0.8rem; }
+      .catalog-banner { padding: 2.5rem 1rem; }
+    }
+  </style>
 </head>
 <body>
 
@@ -13,7 +183,7 @@
   <nav>
     <a href="index.html" class="nav-logo">
       <span class="hindi-name">Arora Stationers</span>
-      <span class="sub-name">अरोरा स्टेशनर्स &nbsp;·&nbsp; Since [Year]</span>
+      <span class="sub-name">अरोरा स्टेशनर्स &nbsp;·&nbsp; Since 1999</span>
     </a>
     <ul>
       <li><a href="index.html">Home</a></li>
@@ -21,225 +191,198 @@
       <li><a href="items.html">Items</a></li>
       <li><a href="festive.html">Festive</a></li>
     </ul>
+    <button class="nav-hamburger" id="hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
   </nav>
 
   <div class="page-hero">
     <h1>उत्सव संग्रह</h1>
-    <p>Festive Collection &nbsp;·&nbsp; Celebrate every occasion with us</p>
+    <p>Festive Catalogue &nbsp;·&nbsp; Celebrate every occasion with us</p>
   </div>
 
-  <!-- FESTIVAL CARDS -->
-  <div class="section-wrap">
-    <div class="section-title">
-      <h2>Shop by Festival</h2>
-      <p>Handpicked items for every celebration</p>
-      <div class="ornament-divider"><span>&#10022;</span></div>
-    </div>
-    <div class="festive-grid">
-
-      <a href="#diwali" class="festive-card">
-        <div class="festive-card-header" style="background: linear-gradient(135deg, #8b1a1a, #c8922a);">
-          <span style="font-family:'Yatra One',cursive; font-size:1.5rem; color:#fde8a0; letter-spacing:2px;">दीपावली</span>
-        </div>
-        <div class="festive-card-body">
-          <h3>Diwali</h3>
-          <p>Rangoli colours, diyas, decorative lights, craft kits, and festive packaging.</p>
-        </div>
-      </a>
-
-      <a href="#holi" class="festive-card">
-        <div class="festive-card-header" style="background: linear-gradient(135deg, #c0392b, #8e44ad);">
-          <span style="font-family:'Yatra One',cursive; font-size:1.5rem; color:#fde8a0; letter-spacing:2px;">होली</span>
-        </div>
-        <div class="festive-card-body">
-          <h3>Holi</h3>
-          <p>Herbal colours, pichkaris, colour pouches, and Holi craft activity kits.</p>
-        </div>
-      </a>
-
-      <a href="#rakhi" class="festive-card">
-        <div class="festive-card-header" style="background: linear-gradient(135deg, #8b1a1a, #d4500a);">
-          <span style="font-family:'Yatra One',cursive; font-size:1.5rem; color:#fde8a0; letter-spacing:2px;">रक्षाबंधन</span>
-        </div>
-        <div class="festive-card-body">
-          <h3>Raksha Bandhan</h3>
-          <p>DIY rakhi kits, decorative threads, gift boxes, and greeting cards.</p>
-        </div>
-      </a>
-
-      <a href="#newyear" class="festive-card">
-        <div class="festive-card-header" style="background: linear-gradient(135deg, #2c1a0e, #5c3317);">
-          <span style="font-family:'Yatra One',cursive; font-size:1.5rem; color:#fde8a0; letter-spacing:2px;">नव वर्ष</span>
-        </div>
-        <div class="festive-card-body">
-          <h3>New Year</h3>
-          <p>Party supplies, confetti, banners, diaries, planners, and gift wraps.</p>
-        </div>
-      </a>
-
-      <a href="#christmas" class="festive-card">
-        <div class="festive-card-header" style="background: linear-gradient(135deg, #1a5c2a, #8b1a1a);">
-          <span style="font-family:'Yatra One',cursive; font-size:1.5rem; color:#fde8a0; letter-spacing:2px;">Christmas</span>
-        </div>
-        <div class="festive-card-body">
-          <h3>Christmas</h3>
-          <p>Craft kits, greeting cards, gift wrapping, and decorative supplies.</p>
-        </div>
-      </a>
-
-      <a href="#sankranti" class="festive-card">
-        <div class="festive-card-header" style="background: linear-gradient(135deg, #c8922a, #d4500a);">
-          <span style="font-family:'Yatra One',cursive; font-size:1.5rem; color:#fde8a0; letter-spacing:2px;">संक्रांति</span>
-        </div>
-        <div class="festive-card-body">
-          <h3>Makar Sankranti</h3>
-          <p>Kite paper, thread, craft kits, and colourful decorations.</p>
-        </div>
-      </a>
-
-    </div>
+  <!-- FESTIVAL TABS -->
+  <div class="fest-tabs">
+    <button class="fest-tab active" onclick="showFest('diwali', this)">Diwali</button>
+    <button class="fest-tab" onclick="showFest('holi', this)">Holi</button>
+    <button class="fest-tab" onclick="showFest('rakhi', this)">Raksha Bandhan</button>
+    <button class="fest-tab" onclick="showFest('navratri', this)">Navratri</button>
+    <button class="fest-tab" onclick="showFest('newyear', this)">New Year</button>
+    <button class="fest-tab" onclick="showFest('christmas', this)">Christmas</button>
   </div>
 
-  <!-- DIWALI -->
-  <div class="categories-bg">
-    <div class="section-wrap" id="diwali">
-      <div class="section-title">
-        <h2>Diwali Collection</h2>
-        <p style="font-family:'Yatra One',cursive; color:var(--gold); font-size:1rem;">दीपावली संग्रह</p>
-        <div class="ornament-divider"><span>&#10022;</span></div>
+  <!-- ══ DIWALI ══ -->
+  <div class="catalog-panel active" id="panel-diwali">
+    <div class="catalog-banner">
+      <div class="catalog-banner-bg" style="background: linear-gradient(135deg,#8b1a1a,#c8922a);"></div>
+      <div class="catalog-banner-content">
+        <h2>दीपावली</h2>
+        <div class="catalog-banner-divider"></div>
+        <p>Rangoli · Diyas · Craft Kits · Festive Packaging</p>
       </div>
-      <div class="items-grid">
-        <a href="#" class="item-card">
-          <div class="item-img" style="background:linear-gradient(135deg,#fdf6e3,#f5e0b0);font-size:0.9rem;color:var(--muted);font-family:'Playfair Display',serif;">Rangoli Colours</div>
-          <div class="item-info">
-            <h4>Rangoli Colour Set</h4>
-            <p>12 vibrant colours, 200g each</p>
-            <div class="item-price">Rs. 180</div>
-          </div>
-        </a>
-        <a href="#" class="item-card">
-          <div class="item-img" style="background:linear-gradient(135deg,#fdf6e3,#f5e0b0);font-size:0.9rem;color:var(--muted);font-family:'Playfair Display',serif;">Diwali Craft Kit</div>
-          <div class="item-info">
-            <h4>Diwali Craft Kit</h4>
-            <p>Diyas, colours, stencils &amp; more</p>
-            <div class="item-price">Rs. 199</div>
-          </div>
-        </a>
-        <a href="#" class="item-card">
-          <div class="item-img" style="background:linear-gradient(135deg,#fdf6e3,#f5e0b0);font-size:0.9rem;color:var(--muted);font-family:'Playfair Display',serif;">Gift Boxes</div>
-          <div class="item-info">
-            <h4>Festive Gift Boxes</h4>
-            <p>Decorative boxes, assorted sizes</p>
-            <div class="item-price">Rs. 120</div>
-          </div>
-        </a>
-        <a href="#" class="item-card">
-          <div class="item-img" style="background:linear-gradient(135deg,#fdf6e3,#f5e0b0);font-size:0.9rem;color:var(--muted);font-family:'Playfair Display',serif;">Greeting Cards</div>
-          <div class="item-info">
-            <h4>Diwali Greeting Cards</h4>
-            <p>Pack of 10, premium design</p>
-            <div class="item-price">Rs. 80</div>
-          </div>
-        </a>
+    </div>
+    <div class="catalog-grid-wrap">
+      <div class="catalog-grid" id="grid-diwali">
+        <div class="catalog-empty"><span>&#9670;</span>Photos coming soon. Visit the shop to explore our Diwali collection.</div>
       </div>
     </div>
   </div>
 
-  <!-- HOLI -->
-  <div class="section-wrap" id="holi">
-    <div class="section-title">
-      <h2>Holi Collection</h2>
-      <p style="font-family:'Yatra One',cursive; color:var(--gold); font-size:1rem;">होली संग्रह</p>
-      <div class="ornament-divider"><span>&#10022;</span></div>
-    </div>
-    <div class="items-grid">
-      <a href="#" class="item-card">
-        <div class="item-img" style="font-size:0.9rem;color:var(--muted);font-family:'Playfair Display',serif;">Herbal Colours</div>
-        <div class="item-info">
-          <h4>Herbal Holi Colours</h4>
-          <p>Safe &amp; natural, 8 colours pack</p>
-          <div class="item-price">Rs. 150</div>
-        </div>
-      </a>
-      <a href="#" class="item-card">
-        <div class="item-img" style="font-size:0.9rem;color:var(--muted);font-family:'Playfair Display',serif;">Activity Kit</div>
-        <div class="item-info">
-          <h4>Holi Craft Activity Kit</h4>
-          <p>For kids, safe colours &amp; stencils</p>
-          <div class="item-price">Rs. 130</div>
-        </div>
-      </a>
-    </div>
-  </div>
-
-  <!-- RAKHI -->
-  <div class="categories-bg">
-    <div class="section-wrap" id="rakhi">
-      <div class="section-title">
-        <h2>Raksha Bandhan Collection</h2>
-        <p style="font-family:'Yatra One',cursive; color:var(--gold); font-size:1rem;">रक्षाबंधन संग्रह</p>
-        <div class="ornament-divider"><span>&#10022;</span></div>
+  <!-- ══ HOLI ══ -->
+  <div class="catalog-panel" id="panel-holi">
+    <div class="catalog-banner">
+      <div class="catalog-banner-bg" style="background: linear-gradient(135deg,#c0392b,#8e44ad);"></div>
+      <div class="catalog-banner-content">
+        <h2>होली</h2>
+        <div class="catalog-banner-divider"></div>
+        <p>Herbal Colours · Pichkaris · Craft Activity Kits</p>
       </div>
-      <div class="items-grid">
-        <a href="#" class="item-card">
-          <div class="item-img" style="background:linear-gradient(135deg,#fdf6e3,#f5e0b0);font-size:0.9rem;color:var(--muted);font-family:'Playfair Display',serif;">DIY Rakhi Kit</div>
-          <div class="item-info">
-            <h4>DIY Rakhi Kit</h4>
-            <p>Threads, beads, charms &amp; guide</p>
-            <div class="item-price">Rs. 99</div>
-          </div>
-        </a>
-        <a href="#" class="item-card">
-          <div class="item-img" style="background:linear-gradient(135deg,#fdf6e3,#f5e0b0);font-size:0.9rem;color:var(--muted);font-family:'Playfair Display',serif;">Greeting Cards</div>
-          <div class="item-info">
-            <h4>Rakhi Greeting Cards</h4>
-            <p>Pack of 5, handcrafted designs</p>
-            <div class="item-price">Rs. 60</div>
-          </div>
-        </a>
+    </div>
+    <div class="catalog-grid-wrap">
+      <div class="catalog-grid" id="grid-holi">
+        <div class="catalog-empty"><span>&#9670;</span>Photos coming soon. Visit the shop to explore our Holi collection.</div>
       </div>
     </div>
   </div>
 
-  <!-- NEW YEAR -->
-  <div class="section-wrap" id="newyear">
-    <div class="section-title">
-      <h2>New Year Collection</h2>
-      <p style="font-family:'Yatra One',cursive; color:var(--gold); font-size:1rem;">नव वर्ष संग्रह</p>
-      <div class="ornament-divider"><span>&#10022;</span></div>
+  <!-- ══ RAKHI ══ -->
+  <div class="catalog-panel" id="panel-rakhi">
+    <div class="catalog-banner">
+      <div class="catalog-banner-bg" style="background: linear-gradient(135deg,#8b1a1a,#d4500a);"></div>
+      <div class="catalog-banner-content">
+        <h2>रक्षाबंधन</h2>
+        <div class="catalog-banner-divider"></div>
+        <p>DIY Rakhi Kits · Decorative Threads · Gift Boxes</p>
+      </div>
     </div>
-    <div class="items-grid">
-      <a href="#" class="item-card">
-        <div class="item-img" style="font-size:0.9rem;color:var(--muted);font-family:'Playfair Display',serif;">Diary 2026</div>
-        <div class="item-info">
-          <h4>New Year Diary 2026</h4>
-          <p>A5, dated, premium cover</p>
-          <div class="item-price">Rs. 220</div>
-        </div>
-      </a>
-      <a href="#" class="item-card">
-        <div class="item-img" style="font-size:0.9rem;color:var(--muted);font-family:'Playfair Display',serif;">Party Supplies</div>
-        <div class="item-info">
-          <h4>Party Supplies Kit</h4>
-          <p>Confetti, banners, poppers</p>
-          <div class="item-price">Rs. 175</div>
-        </div>
-      </a>
-      <a href="#" class="item-card">
-        <div class="item-img" style="font-size:0.9rem;color:var(--muted);font-family:'Playfair Display',serif;">Wall Planner</div>
-        <div class="item-info">
-          <h4>2026 Wall Planner</h4>
-          <p>Monthly view, large format</p>
-          <div class="item-price">Rs. 140</div>
-        </div>
-      </a>
+    <div class="catalog-grid-wrap">
+      <div class="catalog-grid" id="grid-rakhi">
+        <div class="catalog-empty"><span>&#9670;</span>Photos coming soon. Visit the shop to explore our Raksha Bandhan collection.</div>
+      </div>
     </div>
+  </div>
+
+  <!-- ══ NAVRATRI ══ -->
+  <div class="catalog-panel" id="panel-navratri">
+    <div class="catalog-banner">
+      <div class="catalog-banner-bg" style="background: linear-gradient(135deg,#c0392b,#e67e22);"></div>
+      <div class="catalog-banner-content">
+        <h2>नवरात्रि</h2>
+        <div class="catalog-banner-divider"></div>
+        <p>Dandiya · Decorations · Craft Kits · Festive Colours</p>
+      </div>
+    </div>
+    <div class="catalog-grid-wrap">
+      <div class="catalog-grid" id="grid-navratri">
+        <div class="catalog-empty"><span>&#9670;</span>Photos coming soon. Visit the shop to explore our Navratri collection.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ NEW YEAR ══ -->
+  <div class="catalog-panel" id="panel-newyear">
+    <div class="catalog-banner">
+      <div class="catalog-banner-bg" style="background: linear-gradient(135deg,#2c1a0e,#5c3317);"></div>
+      <div class="catalog-banner-content">
+        <h2>नव वर्ष</h2>
+        <div class="catalog-banner-divider"></div>
+        <p>Diaries · Planners · Party Supplies · Gift Wraps</p>
+      </div>
+    </div>
+    <div class="catalog-grid-wrap">
+      <div class="catalog-grid" id="grid-newyear">
+        <div class="catalog-empty"><span>&#9670;</span>Photos coming soon. Visit the shop to explore our New Year collection.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ CHRISTMAS ══ -->
+  <div class="catalog-panel" id="panel-christmas">
+    <div class="catalog-banner">
+      <div class="catalog-banner-bg" style="background: linear-gradient(135deg,#1a5c2a,#8b1a1a);"></div>
+      <div class="catalog-banner-content">
+        <h2>Christmas</h2>
+        <div class="catalog-banner-divider"></div>
+        <p>Craft Kits · Greeting Cards · Gift Wrapping · Decorations</p>
+      </div>
+    </div>
+    <div class="catalog-grid-wrap">
+      <div class="catalog-grid" id="grid-christmas">
+        <div class="catalog-empty"><span>&#9670;</span>Photos coming soon. Visit the shop to explore our Christmas collection.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- LIGHTBOX -->
+  <div class="lightbox" id="lightbox">
+    <button class="lightbox-close" onclick="closeLightbox()">&times;</button>
+    <img id="lightbox-img" src="" alt=""/>
+    <div class="lightbox-caption" id="lightbox-caption"></div>
   </div>
 
   <div class="pattern-border"></div>
   <footer>
     <p>&copy; 2026 <a href="index.html">Arora Stationers</a>. All rights reserved.</p>
   </footer>
+
+  <script>
+    // ── NAV ──
+    const hamburger = document.getElementById('hamburger');
+    const navUl = document.querySelector('nav ul');
+    hamburger.addEventListener('click', () => {
+      hamburger.classList.toggle('open');
+      navUl.classList.toggle('open');
+    });
+    navUl.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+      hamburger.classList.remove('open');
+      navUl.classList.remove('open');
+    }));
+
+    // ── TABS ──
+    function showFest(id, btn) {
+      document.querySelectorAll('.catalog-panel').forEach(p => p.classList.remove('active'));
+      document.querySelectorAll('.fest-tab').forEach(t => t.classList.remove('active'));
+      document.getElementById('panel-' + id).classList.add('active');
+      btn.classList.add('active');
+    }
+
+    // ── LOAD CATALOG DATA from localStorage (set by admin panel) ──
+    function loadCatalog() {
+      const festivals = ['diwali','holi','rakhi','navratri','newyear','christmas'];
+      festivals.forEach(fest => {
+        const grid = document.getElementById('grid-' + fest);
+        const items = JSON.parse(localStorage.getItem('festive_' + fest) || '[]');
+        if (items.length === 0) return; // keep empty state
+        grid.innerHTML = '';
+        items.forEach((item, idx) => {
+          const div = document.createElement('div');
+          div.className = 'catalog-item';
+          div.innerHTML = `
+            <img src="${item.src}" alt="${item.name}" loading="lazy"/>
+            <div class="catalog-item-label">${item.name}</div>
+          `;
+          div.addEventListener('click', () => openLightbox(item.src, item.name));
+          grid.appendChild(div);
+        });
+      });
+    }
+
+    // ── LIGHTBOX ──
+    function openLightbox(src, caption) {
+      document.getElementById('lightbox-img').src = src;
+      document.getElementById('lightbox-caption').textContent = caption;
+      document.getElementById('lightbox').classList.add('open');
+    }
+    function closeLightbox() {
+      document.getElementById('lightbox').classList.remove('open');
+    }
+    document.getElementById('lightbox').addEventListener('click', function(e) {
+      if (e.target === this) closeLightbox();
+    });
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbox(); });
+
+    loadCatalog();
+  </script>
 
 </body>
 </html>

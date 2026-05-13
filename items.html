@@ -92,7 +92,7 @@
   <nav>
     <a href="index.html" class="nav-logo">
       <span class="hindi-name">Arora Stationers</span>
-      <span class="sub-name">अरोरा स्टेशनर्स &nbsp;·&nbsp; Since [Year]</span>
+      <span class="sub-name">अरोरा स्टेशनर्स &nbsp;·&nbsp; Since 1999</span>
     </a>
     <ul>
       <li><a href="index.html">Home</a></li>
@@ -100,11 +100,14 @@
       <li><a href="items.html">Items</a></li>
       <li><a href="festive.html">Festive</a></li>
     </ul>
+    <button class="nav-hamburger" id="hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
   </nav>
 
   <div class="page-hero">
     <h1>Our Items</h1>
-    <p>हमारे उत्पाद &nbsp;·&nbsp; Browse our full collection</p>
+    <p>हमारे उत्पाद &nbsp;·&nbsp; EXPLORE SAMPLE COLLECTION</p>
   </div>
 
 
@@ -252,6 +255,17 @@
   </footer>
 
   <script>
+    const hamburger = document.getElementById('hamburger');
+    const navUl = document.querySelector('nav ul');
+    hamburger.addEventListener('click', () => {
+      hamburger.classList.toggle('open');
+      navUl.classList.toggle('open');
+    });
+    navUl.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+      hamburger.classList.remove('open');
+      navUl.classList.remove('open');
+    }));
+
     document.querySelectorAll('.carousel-track-wrap').forEach(wrap => {
       const track = wrap.querySelector('.carousel-track');
       wrap.addEventListener('mousedown', () => track.style.animationPlayState = 'paused');
@@ -259,6 +273,5 @@
       wrap.addEventListener('mouseup',    () => track.style.animationPlayState = 'running');
     });
   </script>
-
 </body>
 </html>
