@@ -1273,3 +1273,205 @@ footer a {
     line-height: 1;
   }
 }
+
+/* ══════════════════════════════════════
+   SHOP INFO CARDS (shop.html)
+══════════════════════════════════════ */
+.shopinfo-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.2rem;
+}
+
+.shopinfo-card--wide {
+  grid-column: span 1;
+}
+
+.shopinfo-card {
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: 2px;
+  padding: 1.6rem 1.4rem;
+  display: flex;
+  gap: 1.1rem;
+  align-items: flex-start;
+  transition: transform 0.25s, box-shadow 0.25s;
+  position: relative;
+  overflow: hidden;
+}
+
+.shopinfo-card::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 3px;
+  background: linear-gradient(to right, var(--saffron), var(--gold));
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s ease;
+}
+
+.shopinfo-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(44,26,14,0.1);
+}
+
+.shopinfo-card:hover::after {
+  transform: scaleX(1);
+}
+
+.shopinfo-icon-wrap {
+  width: 42px;
+  height: 42px;
+  flex-shrink: 0;
+  background: linear-gradient(135deg, #fdf0d8, #f5d9a0);
+  border: 1px solid var(--border);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--saffron);
+}
+
+.shopinfo-icon-wrap svg {
+  width: 18px;
+  height: 18px;
+}
+
+.shopinfo-content h4 {
+  font-size: 0.68rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--muted);
+  margin-bottom: 0.5rem;
+}
+
+.shopinfo-content p {
+  font-family: 'Playfair Display', serif;
+  font-size: 0.92rem;
+  color: var(--dark-brown);
+  line-height: 1.7;
+}
+
+.shopinfo-link {
+  display: inline-block;
+  margin-top: 0.6rem;
+  font-size: 0.75rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--saffron);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(212,80,10,0.3);
+  transition: color 0.2s, border-color 0.2s;
+}
+.shopinfo-link:hover {
+  color: var(--deep-red);
+  border-bottom-color: var(--deep-red);
+}
+
+.shopinfo-phone {
+  display: block;
+  font-family: 'Courier New', monospace;
+  font-size: 1rem;
+  color: var(--dark-brown);
+  text-decoration: none;
+  font-weight: 600;
+  letter-spacing: 1px;
+  margin-bottom: 0.3rem;
+  transition: color 0.2s;
+}
+.shopinfo-phone:hover { color: var(--saffron); }
+
+.shopinfo-closed {
+  display: inline-block;
+  margin-top: 0.5rem;
+  font-size: 0.72rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--deep-red);
+  background: rgba(139,26,26,0.07);
+  padding: 0.2rem 0.6rem;
+  border: 1px solid rgba(139,26,26,0.2);
+}
+
+.shopinfo-year {
+  font-family: 'Yatra One', cursive !important;
+  font-size: 2rem !important;
+  color: var(--saffron) !important;
+  line-height: 1.1;
+  margin-bottom: 0.2rem;
+}
+
+.shopinfo-sub {
+  font-size: 0.75rem;
+  color: var(--muted);
+  letter-spacing: 0.5px;
+}
+
+/* payment tags */
+.payment-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 0.3rem;
+}
+.payment-tags span {
+  padding: 0.25rem 0.8rem;
+  background: #fdf0d8;
+  border: 1px solid var(--border);
+  font-size: 0.72rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--saffron);
+}
+
+/* social */
+.shopinfo-card--social { align-items: center; }
+
+.social-handles {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  margin-top: 0.3rem;
+}
+
+.social-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.45rem 1rem;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-decoration: none;
+  border-radius: 2px;
+  transition: transform 0.2s, opacity 0.2s;
+  font-family: 'Poppins', sans-serif;
+}
+.social-btn:hover { transform: translateX(3px); opacity: 0.88; }
+.social-btn svg { width: 16px; height: 16px; flex-shrink: 0; }
+
+.social-btn--insta {
+  background: linear-gradient(135deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+  color: white;
+}
+.social-btn--fb {
+  background: #1877f2;
+  color: white;
+}
+
+/* responsive */
+@media (max-width: 900px) {
+  .shopinfo-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .shopinfo-grid {
+    grid-template-columns: 1fr;
+  }
+  .shopinfo-card--wide { grid-column: span 1; }
+  .shopinfo-card { padding: 1.2rem 1rem; }
+  .social-handles { flex-direction: row; flex-wrap: wrap; }
+}

@@ -6,131 +6,174 @@
   <title>Festive Collection – Arora Stationers</title>
   <link rel="stylesheet" href="style.css" />
   <style>
-    /* ── FESTIVAL TABS ── */
-    .fest-tabs {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 0.6rem;
-      padding: 2rem 1.5rem 0;
-      max-width: 900px;
-      margin: 0 auto;
-    }
-    .fest-tab {
-      padding: 0.55rem 1.4rem;
-      border: 1px solid var(--border);
+
+    /* ── FESTIVAL NAV TABS ── */
+    .fest-nav {
       background: white;
+      border-bottom: 1px solid var(--border);
+      position: sticky;
+      top: 56px;
+      z-index: 90;
+      overflow-x: auto;
+      scrollbar-width: none;
+    }
+    .fest-nav::-webkit-scrollbar { display: none; }
+    .fest-nav-inner {
+      display: flex;
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+    .fest-nav-btn {
+      flex-shrink: 0;
+      padding: 1rem 1.4rem;
+      border: none;
+      background: none;
       font-family: 'Poppins', sans-serif;
       font-size: 0.78rem;
+      font-weight: 500;
       letter-spacing: 1.5px;
       text-transform: uppercase;
       color: var(--muted);
       cursor: pointer;
+      border-bottom: 3px solid transparent;
       transition: all 0.2s;
+      white-space: nowrap;
     }
-    .fest-tab.active, .fest-tab:hover {
-      background: var(--saffron);
-      border-color: var(--saffron);
-      color: white;
+    .fest-nav-btn:hover { color: var(--saffron); }
+    .fest-nav-btn.active {
+      color: var(--saffron);
+      border-bottom-color: var(--saffron);
     }
 
-    /* ── CATALOG PANEL ── */
-    .catalog-panel { display: none; }
-    .catalog-panel.active { display: block; }
+    /* ── FESTIVAL PANEL ── */
+    .fest-panel { display: none; }
+    .fest-panel.active { display: block; }
 
-    /* ── CATALOG HERO BANNER ── */
-    .catalog-banner {
-      position: relative;
-      overflow: hidden;
-      text-align: center;
-      padding: 3.5rem 2rem;
-      margin: 2rem auto 0;
+    /* ── FESTIVAL BANNER ── */
+    .fest-banner {
+      padding: 3rem 2rem 2rem;
       max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      align-items: flex-end;
+      gap: 1.5rem;
+      border-bottom: 1px solid var(--border);
     }
-    .catalog-banner-bg {
-      position: absolute;
-      inset: 0;
-      background-size: cover;
-      background-position: center;
-      filter: brightness(0.35);
-    }
-    .catalog-banner-content {
-      position: relative;
-      z-index: 2;
-    }
-    .catalog-banner h2 {
+    .fest-banner-text h2 {
       font-family: 'Yatra One', cursive;
-      font-size: clamp(2rem, 5vw, 3.5rem);
-      color: var(--light-gold);
+      font-size: clamp(2rem, 5vw, 3rem);
       letter-spacing: 3px;
-      text-shadow: 0 2px 12px rgba(0,0,0,0.5);
+      line-height: 1;
+      margin-bottom: 0.3rem;
     }
-    .catalog-banner p {
-      color: #e8d0a0;
-      font-size: 0.85rem;
+    .fest-banner-text p {
+      font-size: 0.8rem;
       letter-spacing: 2px;
       text-transform: uppercase;
-      margin-top: 0.5rem;
+      color: var(--muted);
     }
-    .catalog-banner-divider {
-      width: 80px;
-      height: 2px;
-      background: var(--gold);
-      margin: 1rem auto;
+    .fest-banner-line {
+      flex: 1;
+      height: 1px;
+      background: var(--border);
+      margin-bottom: 0.5rem;
+    }
+    .fest-banner-count {
+      font-family: 'Playfair Display', serif;
+      font-size: 0.8rem;
+      color: var(--muted);
+      margin-bottom: 0.4rem;
+      white-space: nowrap;
     }
 
     /* ── PHOTO GRID ── */
-    .catalog-grid-wrap {
+    .fest-grid-wrap {
       max-width: 1100px;
       margin: 0 auto;
-      padding: 2rem 1.5rem 3rem;
+      padding: 2rem 1.5rem 4rem;
     }
-    .catalog-grid {
+
+    .fest-photo-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-      gap: 1.2rem;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1rem;
     }
-    .catalog-item {
+
+    /* make every 5th item span 2 cols for visual rhythm */
+    .fest-photo-grid .photo-item:nth-child(5n+1) {
+      grid-column: span 2;
+    }
+
+    .photo-item {
       position: relative;
       overflow: hidden;
-      border: 1px solid var(--border);
-      background: white;
-      aspect-ratio: 3/4;
+      background: #f5e8d0;
       cursor: pointer;
+      aspect-ratio: 1 / 1;
     }
-    .catalog-item img {
+
+    /* wide items keep 16:9 */
+    .photo-item:nth-child(5n+1) {
+      aspect-ratio: 16 / 9;
+    }
+
+    .photo-item img {
       width: 100%;
       height: 100%;
       object-fit: cover;
       display: block;
       transition: transform 0.4s ease;
     }
-    .catalog-item:hover img { transform: scale(1.06); }
-    .catalog-item-label {
+    .photo-item:hover img { transform: scale(1.07); }
+
+    .photo-item-label {
       position: absolute;
       bottom: 0; left: 0; right: 0;
-      background: linear-gradient(to top, rgba(44,26,14,0.85), transparent);
+      padding: 1.2rem 0.8rem 0.6rem;
+      background: linear-gradient(to top, rgba(44,26,14,0.8) 0%, transparent 100%);
       color: var(--light-gold);
       font-family: 'Playfair Display', serif;
-      font-size: 0.9rem;
-      padding: 1.5rem 0.8rem 0.7rem;
+      font-size: 0.85rem;
       text-align: center;
+      opacity: 0;
+      transform: translateY(6px);
+      transition: opacity 0.3s, transform 0.3s;
+    }
+    .photo-item:hover .photo-item-label {
+      opacity: 1;
+      transform: translateY(0);
     }
 
-    /* empty state */
-    .catalog-empty {
-      text-align: center;
-      padding: 3rem;
-      color: var(--muted);
-      font-size: 0.9rem;
-      border: 2px dashed var(--border);
+    /* ── EMPTY STATE ── */
+    .fest-empty {
       grid-column: 1 / -1;
+      text-align: center;
+      padding: 4rem 2rem;
+      border: 2px dashed var(--border);
+      color: var(--muted);
     }
-    .catalog-empty span {
-      display: block;
-      font-size: 2rem;
+    .fest-empty .fest-empty-icon {
+      font-size: 2.5rem;
+      color: var(--border);
+      margin-bottom: 1rem;
+    }
+    .fest-empty h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.1rem;
+      color: var(--dark-brown);
       margin-bottom: 0.5rem;
-      opacity: 0.4;
+    }
+    .fest-empty p {
+      font-size: 0.82rem;
+      line-height: 1.7;
+    }
+    .fest-empty code {
+      background: #f5e8d0;
+      padding: 0.1rem 0.4rem;
+      font-size: 0.8rem;
+      color: var(--saffron);
+      border: 1px solid var(--border);
     }
 
     /* ── LIGHTBOX ── */
@@ -138,41 +181,57 @@
       display: none;
       position: fixed;
       inset: 0;
-      background: rgba(0,0,0,0.92);
+      background: rgba(0,0,0,0.93);
       z-index: 999;
       align-items: center;
       justify-content: center;
       padding: 1rem;
     }
     .lightbox.open { display: flex; }
+    .lightbox-img-wrap {
+      position: relative;
+      max-width: 90vw;
+      max-height: 88vh;
+    }
     .lightbox img {
       max-width: 90vw;
       max-height: 85vh;
       object-fit: contain;
-      border: 2px solid var(--gold);
+      display: block;
+      border: 1px solid rgba(200,146,42,0.3);
     }
     .lightbox-close {
-      position: absolute;
+      position: fixed;
       top: 1rem; right: 1.5rem;
       color: var(--light-gold);
-      font-size: 2rem;
+      font-size: 2.2rem;
       cursor: pointer;
       background: none;
       border: none;
       line-height: 1;
+      z-index: 1000;
     }
     .lightbox-caption {
       position: absolute;
-      bottom: 1.5rem;
-      color: #c4a882;
+      bottom: -2rem;
+      left: 0; right: 0;
+      text-align: center;
+      color: #a08060;
       font-family: 'Playfair Display', serif;
-      font-size: 1rem;
-      letter-spacing: 1px;
+      font-size: 0.9rem;
     }
 
+    /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      .fest-photo-grid { grid-template-columns: repeat(3, 1fr); }
+    }
     @media (max-width: 640px) {
-      .catalog-grid { grid-template-columns: repeat(2, 1fr); gap: 0.8rem; }
-      .catalog-banner { padding: 2.5rem 1rem; }
+      .fest-photo-grid { grid-template-columns: repeat(2, 1fr); gap: 0.6rem; }
+      .fest-photo-grid .photo-item:nth-child(5n+1) { grid-column: span 2; }
+      .fest-banner { padding: 2rem 1.2rem 1.5rem; flex-wrap: wrap; }
+      .fest-banner-line { display: none; }
+      .fest-grid-wrap { padding: 1.5rem 1rem 3rem; }
+      .photo-item-label { opacity: 1; transform: none; }
     }
   </style>
 </head>
@@ -198,126 +257,230 @@
 
   <div class="page-hero">
     <h1>उत्सव संग्रह</h1>
-    <p>Festive Catalogue &nbsp;·&nbsp; Celebrate every occasion with us</p>
+    <p>Festive Collection &nbsp;·&nbsp; Celebrate every occasion with us</p>
   </div>
 
   <!-- FESTIVAL TABS -->
-  <div class="fest-tabs">
-    <button class="fest-tab active" onclick="showFest('diwali', this)">Diwali</button>
-    <button class="fest-tab" onclick="showFest('holi', this)">Holi</button>
-    <button class="fest-tab" onclick="showFest('rakhi', this)">Raksha Bandhan</button>
-    <button class="fest-tab" onclick="showFest('navratri', this)">Navratri</button>
-    <button class="fest-tab" onclick="showFest('newyear', this)">New Year</button>
-    <button class="fest-tab" onclick="showFest('christmas', this)">Christmas</button>
-  </div>
-
-  <!-- ══ DIWALI ══ -->
-  <div class="catalog-panel active" id="panel-diwali">
-    <div class="catalog-banner">
-      <div class="catalog-banner-bg" style="background: linear-gradient(135deg,#8b1a1a,#c8922a);"></div>
-      <div class="catalog-banner-content">
-        <h2>दीपावली</h2>
-        <div class="catalog-banner-divider"></div>
-        <p>Rangoli · Diyas · Craft Kits · Festive Packaging</p>
-      </div>
-    </div>
-    <div class="catalog-grid-wrap">
-      <div class="catalog-grid" id="grid-diwali">
-        <div class="catalog-empty"><span>&#9670;</span>Photos coming soon. Visit the shop to explore our Diwali collection.</div>
-      </div>
+  <div class="fest-nav">
+    <div class="fest-nav-inner">
+      <button class="fest-nav-btn active" onclick="showFest('diwali',this)">Diwali</button>
+      <button class="fest-nav-btn" onclick="showFest('holi',this)">Holi</button>
+      <button class="fest-nav-btn" onclick="showFest('rakhi',this)">Raksha Bandhan</button>
+      <button class="fest-nav-btn" onclick="showFest('navratri',this)">Navratri</button>
+      <button class="fest-nav-btn" onclick="showFest('newyear',this)">New Year</button>
+      <button class="fest-nav-btn" onclick="showFest('christmas',this)">Christmas</button>
     </div>
   </div>
 
-  <!-- ══ HOLI ══ -->
-  <div class="catalog-panel" id="panel-holi">
-    <div class="catalog-banner">
-      <div class="catalog-banner-bg" style="background: linear-gradient(135deg,#c0392b,#8e44ad);"></div>
-      <div class="catalog-banner-content">
-        <h2>होली</h2>
-        <div class="catalog-banner-divider"></div>
-        <p>Herbal Colours · Pichkaris · Craft Activity Kits</p>
-      </div>
-    </div>
-    <div class="catalog-grid-wrap">
-      <div class="catalog-grid" id="grid-holi">
-        <div class="catalog-empty"><span>&#9670;</span>Photos coming soon. Visit the shop to explore our Holi collection.</div>
-      </div>
-    </div>
-  </div>
 
-  <!-- ══ RAKHI ══ -->
-  <div class="catalog-panel" id="panel-rakhi">
-    <div class="catalog-banner">
-      <div class="catalog-banner-bg" style="background: linear-gradient(135deg,#8b1a1a,#d4500a);"></div>
-      <div class="catalog-banner-content">
-        <h2>रक्षाबंधन</h2>
-        <div class="catalog-banner-divider"></div>
-        <p>DIY Rakhi Kits · Decorative Threads · Gift Boxes</p>
+  <!-- ════════════════════════════════════
+       DIWALI
+       HOW TO ADD PHOTOS:
+       1. Put your photos in: images/festive/diwali/
+       2. Copy the photo-item block below and paste inside the fest-photo-grid div
+       3. Change the src and alt/label text
+  ════════════════════════════════════ -->
+  <div class="fest-panel active" id="panel-diwali">
+    <div class="fest-banner">
+      <div class="fest-banner-text">
+        <h2 style="color: var(--saffron);">दीपावली</h2>
+        <p>Diwali Collection &nbsp;·&nbsp; Rangoli · Diyas · Craft Kits · Gift Boxes</p>
       </div>
+      <div class="fest-banner-line"></div>
     </div>
-    <div class="catalog-grid-wrap">
-      <div class="catalog-grid" id="grid-rakhi">
-        <div class="catalog-empty"><span>&#9670;</span>Photos coming soon. Visit the shop to explore our Raksha Bandhan collection.</div>
+    <div class="fest-grid-wrap">
+      <div class="fest-photo-grid" id="grid-diwali">
+
+        <!-- ↓↓ ADD DIWALI PHOTOS HERE ↓↓
+        <div class="photo-item" onclick="openLightbox('images/festive/diwali/YOUR-PHOTO.jpg','Item Name')">
+          <img src="images/festive/diwali/YOUR-PHOTO.jpg" alt="Item Name" loading="lazy"/>
+          <div class="photo-item-label">Item Name</div>
+        </div>
+        ↑↑ COPY THE BLOCK ABOVE FOR EACH PHOTO ↑↑ -->
+
+        <div class="fest-empty">
+          <div class="fest-empty-icon">&#9670;</div>
+          <h3>Diwali photos coming soon</h3>
+          <p>Add your photos to <code>images/festive/diwali/</code><br/>then paste the photo block in this section</p>
+        </div>
+
       </div>
     </div>
   </div>
 
-  <!-- ══ NAVRATRI ══ -->
-  <div class="catalog-panel" id="panel-navratri">
-    <div class="catalog-banner">
-      <div class="catalog-banner-bg" style="background: linear-gradient(135deg,#c0392b,#e67e22);"></div>
-      <div class="catalog-banner-content">
-        <h2>नवरात्रि</h2>
-        <div class="catalog-banner-divider"></div>
-        <p>Dandiya · Decorations · Craft Kits · Festive Colours</p>
+
+  <!-- ════════════════════════════════════
+       HOLI
+       Put photos in: images/festive/holi/
+  ════════════════════════════════════ -->
+  <div class="fest-panel" id="panel-holi">
+    <div class="fest-banner">
+      <div class="fest-banner-text">
+        <h2 style="color: #8e44ad;">होली</h2>
+        <p>Holi Collection &nbsp;·&nbsp; Herbal Colours · Pichkaris · Activity Kits</p>
       </div>
+      <div class="fest-banner-line"></div>
     </div>
-    <div class="catalog-grid-wrap">
-      <div class="catalog-grid" id="grid-navratri">
-        <div class="catalog-empty"><span>&#9670;</span>Photos coming soon. Visit the shop to explore our Navratri collection.</div>
+    <div class="fest-grid-wrap">
+      <div class="fest-photo-grid" id="grid-holi">
+
+        <!-- ↓↓ ADD HOLI PHOTOS HERE ↓↓
+        <div class="photo-item" onclick="openLightbox('images/festive/holi/YOUR-PHOTO.jpg','Item Name')">
+          <img src="images/festive/holi/YOUR-PHOTO.jpg" alt="Item Name" loading="lazy"/>
+          <div class="photo-item-label">Item Name</div>
+        </div>
+        -->
+
+        <div class="fest-empty">
+          <div class="fest-empty-icon">&#9670;</div>
+          <h3>Holi photos coming soon</h3>
+          <p>Add your photos to <code>images/festive/holi/</code></p>
+        </div>
+
       </div>
     </div>
   </div>
 
-  <!-- ══ NEW YEAR ══ -->
-  <div class="catalog-panel" id="panel-newyear">
-    <div class="catalog-banner">
-      <div class="catalog-banner-bg" style="background: linear-gradient(135deg,#2c1a0e,#5c3317);"></div>
-      <div class="catalog-banner-content">
-        <h2>नव वर्ष</h2>
-        <div class="catalog-banner-divider"></div>
-        <p>Diaries · Planners · Party Supplies · Gift Wraps</p>
+
+  <!-- ════════════════════════════════════
+       RAKSHA BANDHAN
+       Put photos in: images/festive/rakhi/
+  ════════════════════════════════════ -->
+  <div class="fest-panel" id="panel-rakhi">
+    <div class="fest-banner">
+      <div class="fest-banner-text">
+        <h2 style="color: var(--deep-red);">रक्षाबंधन</h2>
+        <p>Raksha Bandhan &nbsp;·&nbsp; DIY Rakhi Kits · Threads · Gift Boxes</p>
       </div>
+      <div class="fest-banner-line"></div>
     </div>
-    <div class="catalog-grid-wrap">
-      <div class="catalog-grid" id="grid-newyear">
-        <div class="catalog-empty"><span>&#9670;</span>Photos coming soon. Visit the shop to explore our New Year collection.</div>
+    <div class="fest-grid-wrap">
+      <div class="fest-photo-grid" id="grid-rakhi">
+
+        <!-- ↓↓ ADD RAKHI PHOTOS HERE ↓↓
+        <div class="photo-item" onclick="openLightbox('images/festive/rakhi/YOUR-PHOTO.jpg','Item Name')">
+          <img src="images/festive/rakhi/YOUR-PHOTO.jpg" alt="Item Name" loading="lazy"/>
+          <div class="photo-item-label">Item Name</div>
+        </div>
+        -->
+
+        <div class="fest-empty">
+          <div class="fest-empty-icon">&#9670;</div>
+          <h3>Raksha Bandhan photos coming soon</h3>
+          <p>Add your photos to <code>images/festive/rakhi/</code></p>
+        </div>
+
       </div>
     </div>
   </div>
 
-  <!-- ══ CHRISTMAS ══ -->
-  <div class="catalog-panel" id="panel-christmas">
-    <div class="catalog-banner">
-      <div class="catalog-banner-bg" style="background: linear-gradient(135deg,#1a5c2a,#8b1a1a);"></div>
-      <div class="catalog-banner-content">
-        <h2>Christmas</h2>
-        <div class="catalog-banner-divider"></div>
-        <p>Craft Kits · Greeting Cards · Gift Wrapping · Decorations</p>
+
+  <!-- ════════════════════════════════════
+       NAVRATRI
+       Put photos in: images/festive/navratri/
+  ════════════════════════════════════ -->
+  <div class="fest-panel" id="panel-navratri">
+    <div class="fest-banner">
+      <div class="fest-banner-text">
+        <h2 style="color: #c0392b;">नवरात्रि</h2>
+        <p>Navratri Collection &nbsp;·&nbsp; Dandiya · Decorations · Festive Colours</p>
       </div>
+      <div class="fest-banner-line"></div>
     </div>
-    <div class="catalog-grid-wrap">
-      <div class="catalog-grid" id="grid-christmas">
-        <div class="catalog-empty"><span>&#9670;</span>Photos coming soon. Visit the shop to explore our Christmas collection.</div>
+    <div class="fest-grid-wrap">
+      <div class="fest-photo-grid" id="grid-navratri">
+
+        <!-- ↓↓ ADD NAVRATRI PHOTOS HERE ↓↓
+        <div class="photo-item" onclick="openLightbox('images/festive/navratri/YOUR-PHOTO.jpg','Item Name')">
+          <img src="images/festive/navratri/YOUR-PHOTO.jpg" alt="Item Name" loading="lazy"/>
+          <div class="photo-item-label">Item Name</div>
+        </div>
+        -->
+
+        <div class="fest-empty">
+          <div class="fest-empty-icon">&#9670;</div>
+          <h3>Navratri photos coming soon</h3>
+          <p>Add your photos to <code>images/festive/navratri/</code></p>
+        </div>
+
       </div>
     </div>
   </div>
+
+
+  <!-- ════════════════════════════════════
+       NEW YEAR
+       Put photos in: images/festive/newyear/
+  ════════════════════════════════════ -->
+  <div class="fest-panel" id="panel-newyear">
+    <div class="fest-banner">
+      <div class="fest-banner-text">
+        <h2 style="color: var(--dark-brown);">नव वर्ष</h2>
+        <p>New Year Collection &nbsp;·&nbsp; Diaries · Planners · Party Supplies</p>
+      </div>
+      <div class="fest-banner-line"></div>
+    </div>
+    <div class="fest-grid-wrap">
+      <div class="fest-photo-grid" id="grid-newyear">
+
+        <!-- ↓↓ ADD NEW YEAR PHOTOS HERE ↓↓
+        <div class="photo-item" onclick="openLightbox('images/festive/newyear/YOUR-PHOTO.jpg','Item Name')">
+          <img src="images/festive/newyear/YOUR-PHOTO.jpg" alt="Item Name" loading="lazy"/>
+          <div class="photo-item-label">Item Name</div>
+        </div>
+        -->
+
+        <div class="fest-empty">
+          <div class="fest-empty-icon">&#9670;</div>
+          <h3>New Year photos coming soon</h3>
+          <p>Add your photos to <code>images/festive/newyear/</code></p>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ════════════════════════════════════
+       CHRISTMAS
+       Put photos in: images/festive/christmas/
+  ════════════════════════════════════ -->
+  <div class="fest-panel" id="panel-christmas">
+    <div class="fest-banner">
+      <div class="fest-banner-text">
+        <h2 style="color: #1a5c2a;">Christmas</h2>
+        <p>Christmas Collection &nbsp;·&nbsp; Craft Kits · Cards · Gift Wrapping</p>
+      </div>
+      <div class="fest-banner-line"></div>
+    </div>
+    <div class="fest-grid-wrap">
+      <div class="fest-photo-grid" id="grid-christmas">
+
+        <!-- ↓↓ ADD CHRISTMAS PHOTOS HERE ↓↓
+        <div class="photo-item" onclick="openLightbox('images/festive/christmas/YOUR-PHOTO.jpg','Item Name')">
+          <img src="images/festive/christmas/YOUR-PHOTO.jpg" alt="Item Name" loading="lazy"/>
+          <div class="photo-item-label">Item Name</div>
+        </div>
+        -->
+
+        <div class="fest-empty">
+          <div class="fest-empty-icon">&#9670;</div>
+          <h3>Christmas photos coming soon</h3>
+          <p>Add your photos to <code>images/festive/christmas/</code></p>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
 
   <!-- LIGHTBOX -->
   <div class="lightbox" id="lightbox">
     <button class="lightbox-close" onclick="closeLightbox()">&times;</button>
-    <img id="lightbox-img" src="" alt=""/>
-    <div class="lightbox-caption" id="lightbox-caption"></div>
+    <div class="lightbox-img-wrap">
+      <img id="lightbox-img" src="" alt=""/>
+      <div class="lightbox-caption" id="lightbox-caption"></div>
+    </div>
   </div>
 
   <a href="index.html" class="back-home-btn">
@@ -330,7 +493,7 @@
   </footer>
 
   <script>
-    // ── NAV ──
+    // NAV
     const hamburger = document.getElementById('hamburger');
     const navUl = document.querySelector('nav ul');
     hamburger.addEventListener('click', () => {
@@ -342,50 +505,32 @@
       navUl.classList.remove('open');
     }));
 
-    // ── TABS ──
+    // FESTIVAL TABS
     function showFest(id, btn) {
-      document.querySelectorAll('.catalog-panel').forEach(p => p.classList.remove('active'));
-      document.querySelectorAll('.fest-tab').forEach(t => t.classList.remove('active'));
+      document.querySelectorAll('.fest-panel').forEach(p => p.classList.remove('active'));
+      document.querySelectorAll('.fest-nav-btn').forEach(b => b.classList.remove('active'));
       document.getElementById('panel-' + id).classList.add('active');
       btn.classList.add('active');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 
-    // ── LOAD CATALOG DATA from localStorage (set by admin panel) ──
-    function loadCatalog() {
-      const festivals = ['diwali','holi','rakhi','navratri','newyear','christmas'];
-      festivals.forEach(fest => {
-        const grid = document.getElementById('grid-' + fest);
-        const items = JSON.parse(localStorage.getItem('festive_' + fest) || '[]');
-        if (items.length === 0) return; // keep empty state
-        grid.innerHTML = '';
-        items.forEach((item, idx) => {
-          const div = document.createElement('div');
-          div.className = 'catalog-item';
-          div.innerHTML = `
-            <img src="${item.src}" alt="${item.name}" loading="lazy"/>
-            <div class="catalog-item-label">${item.name}</div>
-          `;
-          div.addEventListener('click', () => openLightbox(item.src, item.name));
-          grid.appendChild(div);
-        });
-      });
-    }
-
-    // ── LIGHTBOX ──
+    // LIGHTBOX
     function openLightbox(src, caption) {
       document.getElementById('lightbox-img').src = src;
       document.getElementById('lightbox-caption').textContent = caption;
       document.getElementById('lightbox').classList.add('open');
+      document.body.style.overflow = 'hidden';
     }
     function closeLightbox() {
       document.getElementById('lightbox').classList.remove('open');
+      document.body.style.overflow = '';
     }
     document.getElementById('lightbox').addEventListener('click', function(e) {
       if (e.target === this) closeLightbox();
     });
-    document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbox(); });
-
-    loadCatalog();
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape') closeLightbox();
+    });
   </script>
 
 </body>
